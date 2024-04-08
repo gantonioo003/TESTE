@@ -1,27 +1,41 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Minha Primeira Página</title>
-   <link rel="stylesheet" href="{% static 'produto/css/ver_produtos.css' %}">
    <style>
       body {
          font-family: Arial, sans-serif;
-         background-color: #f4f4f4;
+         background-color: #f0f8ff; /* Azul claro */
          margin: 0;
          padding: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
       }
 
       h1 {
+         font-size: 24px;
          color: #007bff; /* Azul */
+         margin-bottom: 20px;
+      }
+
+      form {
+         width: 300px;
+         background-color: #fff; /* Branco */
+         padding: 20px;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
       }
 
       input[type="text"],
       input[type="number"],
       input[type="submit"],
       button {
+         width: 100%;
          padding: 10px;
          margin-bottom: 10px;
          border: none;
@@ -58,20 +72,15 @@
    <h1>Criando sua loja</h1>
    <form action="{% url 'ver_produto' %}" method="POST">
       {% csrf_token %}
-      <input type="text" name="loja" placeholder="Qual nome da loja?"></input>
+      <input type="text" name="loja" placeholder="Qual nome da loja?">
       <br>
+      <input type="text" name="categoria" placeholder="Nome completo?">
       <br>
-      <input type="text" name="categoria" placeholder="Nome completo?"></input>
+      <input type="text" name="descricao" placeholder="Nicho de venda?">
       <br>
+      <input type="text" name="estado" placeholder="Telefone para contato?">
       <br>
-      <input type="text" name="descricao" placeholder="Nicho de venda?"></input>
-      <br>
-      <br>
-      <input type="text" name="estado" placeholder="Telefone para contato?"></input>
-      <br>
-      <br>
-      <input type="number" name="preco" placeholder="Qual sua idade?"></input>
-      <br>
+      <input type="number" name="preco" placeholder="Qual sua idade?">
       <br>
       <input type="submit" value="Enviar">
    </form>
