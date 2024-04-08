@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Minha Primeira Página</title>
+   <link rel="stylesheet" href="{% static 'produto/css/ver_produtos.css' %}">
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         background-color: #f4f4f4;
+         margin: 0;
+         padding: 0;
+      }
+
+      h1 {
+         color: #007bff; /* Azul */
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="submit"],
+      button {
+         padding: 10px;
+         margin-bottom: 10px;
+         border: none;
+         border-radius: 5px;
+         background-color: #007bff; /* Azul */
+         color: white;
+         cursor: pointer;
+         transition: background-color 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+         outline: none;
+         box-shadow: 0 0 5px #007bff; /* Azul */
+      }
+
+      input[type="submit"]:hover,
+      button:hover {
+         background-color: #0056b3; /* Azul mais escuro */
+      }
+
+      a {
+         text-decoration: none;
+         color: #007bff; /* Azul */
+         transition: color 0.3s;
+      }
+
+      a:hover {
+         color: #0056b3; /* Azul mais escuro */
+      }
+   </style>
+</head>
+<body>
+   <h1>Criando sua loja</h1>
+   <form action="{% url 'ver_produto' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="loja" placeholder="Qual nome da loja?"></input>
+      <br>
+      <br>
+      <input type="text" name="categoria" placeholder="Nome completo?"></input>
+      <br>
+      <br>
+      <input type="text" name="descricao" placeholder="Nicho de venda?"></input>
+      <br>
+      <br>
+      <input type="text" name="estado" placeholder="Telefone para contato?"></input>
+      <br>
+      <br>
+      <input type="number" name="preco" placeholder="Qual sua idade?"></input>
+      <br>
+      <br>
+      <input type="submit" value="Enviar">
+   </form>
+   <br>
+   <a href="{% url 'homepage' %}"><button>Voltar para página inicial</button></a>
+</body>
+</html>
+
